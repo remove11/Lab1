@@ -2,12 +2,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>JSP - Hello World GEÖRGE</title>
+    <title>Alex & George webshop</title>
 </head>
 <body>
-<h1><%= "Hello World!" %>
+<h1><%= "Hello World!123" %>
 </h1>
 <br/>
-<a href="hello-servlet">Hello Servlet</a>
+
+<a href="hello-servlet">Hello</a>
+<a href="login.jsp">login</a>
+
+<!--
+<script type="text/javascript">
+    window.location.href = "hello-servlet";
+</script> -->
 </body>
 </html>
