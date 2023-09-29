@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>JSP - Hello World Alex</title>
+    <title>JSP - Hello World GEÖRGE</title>
 </head>
 <body>
 <h1><%= "Hello World!" %>
