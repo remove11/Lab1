@@ -11,6 +11,7 @@
 
 <a href="hello-servlet">Hello</a>
 <a href="login.jsp">login</a>
+<a href="ItemInsert.jsp">insertItem</a>
 
 <!--
 <script type="text/javascript">
