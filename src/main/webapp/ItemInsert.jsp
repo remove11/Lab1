@@ -5,6 +5,13 @@
 <%@ page import="java.sql.SQLException" %>
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="java.io.*, java.util.*" %>
+
+<%
+    // Check if the user is an admin
+    Boolean isAdmin = (Boolean) session.getAttribute("isAdmin");
+    if (isAdmin != null && isAdmin) {
+%>
 <html>
 <head>
     <title>Insert New Item</title>
@@ -84,3 +91,20 @@
 
 </body>
 </html>
+<%
+} else {
+%>
+<html>
+<head>
+    <title>Access Denied</title>
+</head>
+<body>
+<h1>Access Denied</h1>
+<p>You do not have permission to access this page.</p>
+</body>
+</html>
+<%
+    }
+%>
+
+
