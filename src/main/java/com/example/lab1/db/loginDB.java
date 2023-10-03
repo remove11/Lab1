@@ -8,8 +8,8 @@ import java.sql.SQLException;
 public class loginDB {
     public boolean authenticate(String username, String password) {
         // Använd JDBC för att kontrollera inloggningsuppgifter mot databasen
-        try (Connection conn = DBManager.getConnection();
-             PreparedStatement ps = conn.prepareStatement("SELECT * FROM Users WHERE username = ? AND password = ?")) {
+        Connection conn = DBManager.getConnection();
+        try ( PreparedStatement ps = conn.prepareStatement("SELECT * FROM Users WHERE username = ? AND password = ?")) {
 
             ps.setString(1, username);
             ps.setString(2, password);
@@ -19,6 +19,7 @@ public class loginDB {
             return rs.next(); // Om en matchande användare hittas, returnera true
         } catch (SQLException e) {
             e.printStackTrace();
+            System.out.println("balalalala");
             return false; // I händelse av ett fel, returnera false
         }
     }

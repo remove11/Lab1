@@ -16,7 +16,7 @@ public class LookItems {
         for (Iterator<Item> it = c.iterator(); it.hasNext(); index++) {
             Hashtable<String, Object> item = new Hashtable<>();
             Item currentItem = it.next();
-            item.put("name", currentItem.getName());
+            item.put("name", currentItem.getTitle());
             item.put("price", currentItem.getPrice());
             t.put("Item" + index, item);
         }

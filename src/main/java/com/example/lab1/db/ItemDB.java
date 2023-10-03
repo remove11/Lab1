@@ -35,6 +35,6 @@ public class ItemDB extends Item {
         }
         System.out.println("Item have been added to DB=" + i.getTitle());
     }
-    //xd
+
 }
 
