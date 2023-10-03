@@ -12,15 +12,15 @@ public class ItemDB extends Item {
         Vector v = new Vector();
         Connection con = DBManager.getConnection();
         Statement st = con.createStatement();
-        ResultSet rs = st.executeQuery("select item_id, name from Item where item_group = "+group);
-        while (rs.next())
-        {
+        ResultSet rs = st.executeQuery("select item_id, name from Item where item_group = " + group);
+        while (rs.next()) {
             int i = rs.getInt("item_id");
             String name = rs.getString("name");
-           //v.addElement(new ItemDB(i, name));
+            //v.addElement(new ItemDB(i, name));
         }
         return v;
     }
+
     private ItemDB(String title, int price, int stock) {
         super(title, price, stock);
     }
@@ -28,7 +28,7 @@ public class ItemDB extends Item {
     public static void saveToDb(Item i) throws SQLException {
         Connection con = DBManager.getConnection();
         String query = "INSERT INTO Items (title, price, stock) VALUES (?, ?, ?)";
-        try(PreparedStatement ps = con.prepareStatement(query)){
+        try (PreparedStatement ps = con.prepareStatement(query)) {
             ps.setString(1, i.getTitle());
             ps.setInt(2, i.getPrice());
             ps.setInt(3, i.getStock());
@@ -36,9 +36,6 @@ public class ItemDB extends Item {
         }
         System.out.println("Item have been added to DB=" + i.getTitle());
     }
-<<<<<<< Updated upstream
-    //xd
-=======
 
     public static ArrayList<Item> getItems() throws SQLException {
         ArrayList<Item> list = new ArrayList<>();
@@ -59,6 +56,4 @@ public class ItemDB extends Item {
         return list;
     }
 
->>>>>>> Stashed changes
 }
-

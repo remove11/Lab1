@@ -75,11 +75,7 @@
 
 <div class="container">
     <h2>Login</h2>
-<<<<<<< Updated upstream
-    <form id="loginForm">
-=======
     <form id="loginForm" action="LoginServlet" method="post">
->>>>>>> Stashed changes
         <label for="username">Username:</label>
         <input type="text" id="username" name="username" required>
 
@@ -89,7 +85,6 @@
         <button type="submit">Login</button>
     </form>
 </div>
-<<<<<<< Updated upstream
 
 <script>
     const loginForm = document.getElementById('loginForm');
@@ -110,10 +105,5 @@
         }
     });
 </script>
-</body>
-</html>
-=======
->>>>>>> Stashed changes
-
 </body>
 </html>
