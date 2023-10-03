@@ -8,7 +8,7 @@
 <h1><%= "Hello World!123" %>
 </h1>
 <br/>
-
+<jsp:include page="Header.jsp" />
 <a href="hello-servlet">Hello</a> <!-- doGet  -->
 <a href="login.jsp">login</a>
 <a href="ItemInsert.jsp">insertItem</a>

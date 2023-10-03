@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class loginDB {
-    public boolean authenticate(String username, String password) {
+    public static boolean authenticate(String username, String password) {
         // Använd JDBC för att kontrollera inloggningsuppgifter mot databasen
         Connection conn = DBManager.getConnection();
         try ( PreparedStatement ps = conn.prepareStatement("SELECT * FROM Users WHERE username = ? AND password = ?")) {
@@ -24,9 +24,25 @@ public class loginDB {
         }
     }
 
-    public boolean isAdmin(String username)
-    {
-        return true;
+    public static boolean isAdmin(String username) {
+        boolean isAdmin = false;
+
+            Connection connection = DBManager.getConnection();
+            String sql = "SELECT isAdmin FROM users WHERE username = ?";
+            try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+                preparedStatement.setString(1, username);
+                try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                    if (resultSet.next()) {
+                        isAdmin = resultSet.getBoolean("isAdmin");
+                    }
+                }
+            }
+         catch (SQLException e) {
+            e.printStackTrace();
+            // Handle any database-related exceptions here
+        }
+
+        return isAdmin;
     }
 }
 

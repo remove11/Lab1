@@ -6,14 +6,21 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="java.io.*, java.util.*" %>
+
+<%
+    // Check if the user is an admin
+    Boolean isAdmin = (Boolean) session.getAttribute("isAdmin");
+    if (isAdmin != null && isAdmin) {
+%>
 <html>
 <head>
     <title>Insert New Item</title>
 </head>
 <body>
+<jsp:include page="Header.jsp" />
 <h1>Insert New Item</h1>
-<form action="hello-servlet" method="post">
-<form action="hello-servlet" method="post"> <!-- doPost  -->
+<form action="hello-servlet" method="post"> <!-- Use your actual servlet URL -->
     <label for="title">Title:</label>
     <input type="text" id="title" name="title" required><br><br>
 
@@ -27,3 +34,19 @@
 </form>
 </body>
 </html>
+<%
+} else {
+%>
+<html>
+<head>
+    <title>Access Denied</title>
+</head>
+<body>
+<h1>Access Denied</h1>
+<p>You do not have permission to access this page.</p>
+</body>
+</html>
+<%
+    }
+%>
+
