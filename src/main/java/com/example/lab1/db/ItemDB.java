@@ -2,10 +2,7 @@ package com.example.lab1.db;
 
 import com.example.lab1.bo.Item;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.Collection;
 import java.util.Vector;
 
@@ -19,12 +16,24 @@ public class ItemDB extends Item {
         {
             int i = rs.getInt("item_id");
             String name = rs.getString("name");
-            v.addElement(new ItemDB(i, name));
+           //v.addElement(new ItemDB(i, name));
         }
         return v;
     }
-    private ItemDB(int id, String name) {
-        super(id, name);
+    private ItemDB(String title, int price, int stock) {
+        super(title, price, stock);
+    }
+
+    public static void saveToDb(Item i) throws SQLException {
+        Connection con = DBManager.getConnection();
+        String query = "INSERT INTO Items (title, price, stock) VALUES (?, ?, ?)";
+        try(PreparedStatement ps = con.prepareStatement(query)){
+            ps.setString(1, i.getTitle());
+            ps.setInt(2, i.getPrice());
+            ps.setInt(3, i.getStock());
+            ps.execute();
+        }
+        System.out.println("Item have been added to DB=" + i.getTitle());
     }
     //xd
 }

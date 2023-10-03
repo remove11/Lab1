@@ -9,7 +9,7 @@
 </h1>
 <br/>
 
-<a href="hello-servlet">Hello</a>
+<a href="hello-servlet">Hello</a> <!-- doGet  -->
 <a href="login.jsp">login</a>
 <a href="ItemInsert.jsp">insertItem</a>
 
