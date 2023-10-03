@@ -19,6 +19,11 @@ public class Item {
         ItemDB.saveToDb(this);
     }
 
+    public static Item createItem(String title, int price, int stock){
+            return new Item(title, price, stock);
+    }
+
+
     protected Item(String title, int price, int stock) {
         this.id = id;
         this.title = title;
@@ -27,7 +32,6 @@ public class Item {
     }
     public String getTitle() {
         return title;
-
     }
 
     public int getId() {
@@ -41,6 +45,6 @@ public class Item {
     public int getStock() {
         return stock;
     }
-    //xd
+
 }
 

@@ -1,8 +1,14 @@
 package com.example.lab1.bo;
 
 import java.io.*;
+import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+
 import com.example.lab1.db.DBManager;
+import com.example.lab1.db.ItemDB;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 
@@ -45,16 +51,29 @@ public class HelloServlet extends HttpServlet {
             throw new RuntimeException(e);
         }
 
-        //DBManager.add(title, ) här kommer man kunna skicka vidare de som skrivs i form.
 
-
-        // Hello
         PrintWriter out = response.getWriter();
         out.println("<html><body>");
-        out.println("<h1>post</h1>");
-        out.println("<h1>doPost</h1>");
-        out.println("<h1>"+title+"</h1>");
-        out.println("<h1>" + message + "</h1>");
+        out.println("<h1>Item Added</h1>");
+        out.println("<h1>Current Items:</h1>");
+
+        // Display items in a table
+        out.println("<table border='1'>");
+        out.println("<tr><th>Title</th><th>Price</th><th>Stock</th></tr>");
+        ArrayList<Item> i = null;
+        try {
+            i = ItemDB.getItems();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        for (int j = 0; j < i.size(); j++) {
+            out.println("<tr>");
+            out.println("<td>" + i.get(j).getTitle() + "</td>");
+            out.println("<td>" + i.get(j).getPrice() + "</td>");
+            out.println("<td>" + i.get(j).getStock() + "</td>");
+            out.println("</tr>");
+        }
+        out.println("</table>");
         out.println("</body></html>");
 
     }
