@@ -51,6 +51,7 @@ public class HelloServlet extends HttpServlet {
             throw new RuntimeException(e);
         }
 
+        /*
 
         PrintWriter out = response.getWriter();
         out.println("<html><body>");
@@ -75,7 +76,7 @@ public class HelloServlet extends HttpServlet {
         }
         out.println("</table>");
         out.println("</body></html>");
-
+*/
     }
 
     public void destroy() {
