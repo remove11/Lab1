@@ -11,12 +11,13 @@ public class Item {
     private int price;
     private int stock;
 
-    public static Collection searchItems(String group) throws SQLException {
+     static public Collection searchItems(String group) throws SQLException {
         return ItemDB.searchItems(group);
     }
-    protected Item(int id , String name) {
+    protected Item(int id , String name,int stock,int price) {
         this.id = id;
         this.name = name;
+        this.stock = stock;
     }
     public String getName() {
         return name;
@@ -33,6 +34,9 @@ public class Item {
     public int getStock() {
         return stock;
     }
-    //xd
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
 }
 

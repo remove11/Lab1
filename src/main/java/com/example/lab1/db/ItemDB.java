@@ -19,13 +19,15 @@ public class ItemDB extends Item {
         {
             int i = rs.getInt("item_id");
             String name = rs.getString("name");
-            v.addElement(new ItemDB(i, name));
+            int stock = rs.getInt("stock");
+            int price = rs.getInt("price");
+            v.addElement(new ItemDB(i, name,stock,price));
         }
         return v;
     }
-    private ItemDB(int id, String name) {
-        super(id, name);
+    private ItemDB(int id, String name,int stock,int price) {
+        super(id, name,stock,price);
     }
-    //xd
+
 }
 

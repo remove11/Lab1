@@ -56,7 +56,7 @@
 <body>
 <div class="container">
     <h2>Login</h2>
-    <form id="loginForm">
+    <form id="loginForm" action="LoginServlet" method="post"> <!-- Ange korrekt URL till din Servlet här -->
         <label for="username">Username:</label>
         <input type="text" id="username" name="username" required>
 
@@ -66,26 +66,6 @@
         <button type="submit">Login</button>
     </form>
 </div>
-
-<script>
-    const loginForm = document.getElementById('loginForm');
-
-    loginForm.addEventListener('submit', function (event) {
-        event.preventDefault();
-
-        // Replace with your authentication logic
-        const username = loginForm.elements.username.value;
-        const password = loginForm.elements.password.value;
-
-        // Simulate a simple authentication check (replace with your own logic)
-        if (username === 'alex' && password === 'password') {
-            alert('Login successful!'); // Replace with redirection or other actions
-                window.location.href = "hello-servlet";
-        } else {
-            alert('Invalid username or password. Please try again.');
-        }
-    });
-</script>
 </body>
 </html>
 

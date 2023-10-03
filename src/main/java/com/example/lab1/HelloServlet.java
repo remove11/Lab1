@@ -1,6 +1,7 @@
 package com.example.lab1;
 
-import java.io.*;
+import
+        java.io.*;
 
 import com.example.lab1.db.DBManager;
 import jakarta.servlet.http.*;
