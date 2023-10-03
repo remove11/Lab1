@@ -7,20 +7,27 @@ import java.util.Collection;
 
 public class Item {
     private int id;
-    private String name;
+    private String title;
     private int price;
     private int stock;
 
-     static public Collection searchItems(String group) throws SQLException {
+    public static Collection searchItems(String group) throws SQLException {
         return ItemDB.searchItems(group);
     }
-    protected Item(int id , String name,int stock,int price) {
+
+    public void save() throws SQLException {
+        ItemDB.saveToDb(this);
+    }
+
+    protected Item(String title, int price, int stock) {
         this.id = id;
-        this.name = name;
+        this.title = title;
+        this.price = price;
         this.stock = stock;
     }
-    public String getName() {
-        return name;
+    public String getTitle() {
+        return title;
+
     }
 
     public int getId() {
@@ -34,9 +41,6 @@ public class Item {
     public int getStock() {
         return stock;
     }
-
-    public void setPrice(int price) {
-        this.price = price;
-    }
+    //xd
 }
 

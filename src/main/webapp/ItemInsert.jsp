@@ -13,6 +13,7 @@
 <body>
 <h1>Insert New Item</h1>
 <form action="hello-servlet" method="post">
+<form action="hello-servlet" method="post"> <!-- doPost  -->
     <label for="title">Title:</label>
     <input type="text" id="title" name="title" required><br><br>
 
