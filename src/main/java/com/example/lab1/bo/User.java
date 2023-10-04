@@ -7,5 +7,12 @@ public class User
     private String password;
     private Boolean isAdmin;
 
+    public User(int id, String name, String password, Boolean isAdmin) {
+        Id = id;
+        this.name = name;
+        this.password = password;
+        this.isAdmin = isAdmin;
+    }
+
 
 }
