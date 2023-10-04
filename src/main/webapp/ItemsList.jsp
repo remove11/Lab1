@@ -3,7 +3,6 @@
 <%@ page import="com.example.lab1.db.ItemDB" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.sql.SQLException" %>
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -77,7 +76,7 @@
 </head>
 <body>
 
-<jsp:include page="topbar.jsp"/> <!-- This line includes the top bar -->
+<jsp:include page="topbar.jsp"/>
 
 <div class="container">
   <h1>Current Items</h1>
@@ -89,7 +88,7 @@
       int stock = Integer.parseInt(request.getParameter("stock"));
       Item item = Item.createItem(title, price, stock);
       try {
-        DBManager.getConnection();  // Ensure DB connection is established
+        DBManager.getConnection();
         item.save();
   %>
   <p style="color: green; text-align: center;">Item Added Successfully!</p>

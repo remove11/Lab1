@@ -43,11 +43,20 @@
             top: -10px;
             right: -10px;
         }
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            background-color: #28a745;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
     </style>
     <nav>
         <a href="ItemInsert.jsp">Insert Item</a>
         <a href="ItemsList.jsp">Items List</a>
-        <a href="hello-servlet">Hello</a>
         <% if (username != null) { %>
         <li><span>Hello, <%= username %>!</span></li>
         <form id="LogoutForm" action="UserServlet" method="get">

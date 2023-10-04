@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: alexf
-  Date: 2023-09-29
-  Time: 17:03
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
@@ -76,14 +69,11 @@
 <div class="container">
     <h2>Login</h2>
     <form id="loginForm" action="UserServlet" method="post">
-
         <input type="hidden" name="action" value="login">
         <label for="username">Username:</label>
         <input type="text" id="username" name="username" required>
-
         <label for="password">Password:</label>
         <input type="password" id="password" name="password" required>
-
         <button type="submit">Login</button>
     </form>
 </div>

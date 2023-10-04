@@ -69,9 +69,7 @@
     </style>
 </head>
 <body>
-
 <jsp:include page="topbar.jsp"/> <!-- Include the top bar -->
-
 <div class="container">
     <h1>Welcome to Alex & George Webshop!</h1>
     <h2>Your One-Stop Online Store for Exclusive, High-Quality Products</h2>
@@ -81,13 +79,7 @@
         Nestled in the digital space, we’ve created a sanctuary where quality, value,
         and customer satisfaction are as cherished as the valued customers we serve.
     </p>
-
-
-
 </div>
-<h1><%= "Hello World!123" %>
-</h1>
 <br/>
-
 </body>
 </html>

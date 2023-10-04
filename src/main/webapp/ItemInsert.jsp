@@ -8,7 +8,6 @@
 <%@ page import="java.io.*, java.util.*" %>
 
 <%
-    // Check if the user is an admin
     Boolean isAdmin = (Boolean) session.getAttribute("isAdmin");
     if (isAdmin != null && isAdmin) {
 %>
@@ -31,7 +30,7 @@
         }
 
         .container {
-            max-width: 600px; /* Adjusted the width for the form */
+            max-width: 600px;
             margin: auto;
             background: white;
             padding: 20px 40px;
@@ -71,11 +70,11 @@
 </head>
 <body>
 
-<jsp:include page="topbar.jsp"/> <!-- This line includes the top bar -->
+<jsp:include page="topbar.jsp"/>
 
 <div class="container">
     <h1>Insert New Item</h1>
-    <form action="ItemsList.jsp" method="post"> <!-- doPost -->
+    <form action="ItemsList.jsp" method="post">
         <label for="title">Title:</label>
         <input type="text" id="title" name="title" required>
 

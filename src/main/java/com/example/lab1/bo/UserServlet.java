@@ -16,9 +16,7 @@ public class UserServlet extends HttpServlet {
     {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-        // Anropa en tjänst i ditt datalager för att kontrollera inloggningen
         if (userDB.authenticate(username, password)) {
-            // Inloggning lyckades
             HttpSession session = request.getSession();
             session.setAttribute("username", username);
             if (userDB.isAdmin(username)){
@@ -29,7 +27,6 @@ public class UserServlet extends HttpServlet {
                 response.sendRedirect("index.jsp");
             }
         } else {
-            // Inloggning misslyckades
             request.setAttribute("errorMessage", "Felaktigt användarnamn eller lösenord");
             request.getRequestDispatcher("login.jsp").forward(request, response);
         }
@@ -37,13 +34,9 @@ public class UserServlet extends HttpServlet {
     private void register(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-        boolean isAdmin = (request.getParameter("isAdmin") != null); // Check if the isAdmin checkbox is checked
-
-        // Anropa din register-metod för att lägga till användaren i databasen
+        boolean isAdmin = (request.getParameter("isAdmin") != null);
         userDB.register(username, password, isAdmin);
-
-        // Redirect to a confirmation page or wherever you want
-        response.sendRedirect("login.jsp"); // Replace with your desired page
+        response.sendRedirect("login.jsp");
     }
 
     @Override
@@ -61,12 +54,11 @@ public class UserServlet extends HttpServlet {
         HttpSession session = request.getSession(false);
 
         if (session != null) {
-            // Ogiltigförklara sessionen (logga ut)
+
             session.invalidate();
         }
 
-        // Omdirigera till startsidan eller inloggningssidan
-        response.sendRedirect("index.jsp"); // Byt ut med din önskade sida
+        response.sendRedirect("index.jsp");
     }
 
 

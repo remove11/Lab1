@@ -1,7 +1,6 @@
 package com.example.lab1.db;
 
 import com.example.lab1.bo.Item;
-
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -16,7 +15,6 @@ public class ItemDB extends Item {
         while (rs.next()) {
             int i = rs.getInt("item_id");
             String name = rs.getString("name");
-            //v.addElement(new ItemDB(i, name));
         }
         return v;
     }

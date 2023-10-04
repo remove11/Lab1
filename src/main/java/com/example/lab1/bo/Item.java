@@ -1,7 +1,6 @@
 package com.example.lab1.bo;
 
 import com.example.lab1.db.ItemDB;
-
 import java.sql.SQLException;
 import java.util.Collection;
 
@@ -22,7 +21,6 @@ public class Item {
     public static Item createItem(String title, int price, int stock){
             return new Item(title, price, stock);
     }
-
 
     protected Item(String title, int price, int stock) {
         this.id = id;
