@@ -42,12 +42,12 @@ public class ItemDB extends Item {
         Connection con = DBManager.getConnection();
         String query = "SELECT * FROM Items";
         try (PreparedStatement ps = con.prepareStatement(query)) {
-            ResultSet rs = ps.executeQuery();  // Execute the query right away since there are no parameters to set
+            ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 String title = rs.getString("title");
                 int price = rs.getInt("price");
                 int stock = rs.getInt("stock");
-                Item item = Item.createItem(title, price, stock);  // Using factory method to create Item object
+                Item item = Item.createItem(title, price, stock);
                 list.add(item);
             }
         } catch (SQLException e) {

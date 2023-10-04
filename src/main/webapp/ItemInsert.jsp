@@ -97,10 +97,40 @@
 <html>
 <head>
     <title>Access Denied</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        h1 {
+            color: #444;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px 40px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+    </style>
 </head>
+<jsp:include page="topbar.jsp"/>
 <body>
-<h1>Access Denied</h1>
-<p>You do not have permission to access this page.</p>
+
+<div class="container">
+    <h1>Access Denied</h1>
+    <p>You do not have permission to access this page.</p>
+</div>
+
 </body>
 </html>
 <%
