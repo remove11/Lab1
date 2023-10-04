@@ -44,6 +44,17 @@ public class loginDB {
 
         return isAdmin;
     }
+    public static void register(String username, String password,Boolean isAdmin){
+        Connection connection = DBManager.getConnection();
+        String sql = "insert into Users (username, password, isAdmin) value (?, ?, ?);";
+        try (PreparedStatement pr = connection.prepareStatement(sql)){
+            pr.setString(1,username);
+            pr.setString(2,password);
+            pr.setBoolean(3,isAdmin);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }
 
 
