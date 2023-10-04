@@ -70,13 +70,15 @@
   <h2>Welcome to the Registration Form</h2>
   <p>Join us and enjoy exclusive benefits.</p>
 
-  <form action="register" method="post">
+  <form id="loginForm" action="UserServlet" method="post">
+    <input type="hidden" name="action" value="register">
     <label for="username">Username:</label>
     <input type="text" id="username" name="username" required>
 
     <label for="password">Password:</label>
     <input type="password" id="password" name="password" required>
-
+    <label for="isAdmin">Admin:</label>
+    <input type="checkbox" id="isAdmin" name="isAdmin"><br><br>
     <button type="submit">Register</button>
   </form>
 </div>

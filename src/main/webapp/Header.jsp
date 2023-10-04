@@ -79,7 +79,7 @@
       <%-- Only show logout and "Hello, [username]" if the user is logged in --%>
       <% if (username != null) { %>
       <li><span>Hello, <%= username %>!</span></li>
-        <form id="LogoutForm" action="LoginServlet" method="get">
+        <form id="LogoutForm" action="UserServlet" method="get">
           <button type="submit">Logout</button>
         </form>
       <% }else{%>

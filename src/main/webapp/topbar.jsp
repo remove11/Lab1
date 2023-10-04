@@ -1,4 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%  session = request.getSession(false); %>
+<% String username = (session != null) ? (String) session.getAttribute("username") : null; %>
+
 <header>
     <style>
         body {
@@ -42,11 +45,18 @@
         }
     </style>
     <nav>
-        <a href="login.jsp">Login</a>
-        <a href="RegisterUser.jsp">Register</a>
         <a href="ItemInsert.jsp">Insert Item</a>
         <a href="ItemsList.jsp">Items List</a>
         <a href="hello-servlet">Hello</a>
+        <% if (username != null) { %>
+        <li><span>Hello, <%= username %>!</span></li>
+        <form id="LogoutForm" action="UserServlet" method="get">
+            <button type="submit">Logout</button>
+        </form>
+        <% }else{%>
+        <a href="login.jsp">Login</a>
+        <a href="RegisterUser.jsp">Register</a>
+        <%}%>
     </nav>
     <div class="cart">
         <a href="cart.jsp"><img src="cart-icon.png" alt="Shopping Cart"></a>

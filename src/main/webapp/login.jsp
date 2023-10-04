@@ -75,7 +75,9 @@
 
 <div class="container">
     <h2>Login</h2>
-    <form id="loginForm" action="LoginServlet" method="post">
+    <form id="loginForm" action="UserServlet" method="post">
+
+        <input type="hidden" name="action" value="login">
         <label for="username">Username:</label>
         <input type="text" id="username" name="username" required>
 
