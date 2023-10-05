@@ -59,19 +59,18 @@
       font-size: 1.2em;
     }
 
-    button {
-      padding: 10px 20px;
-      border: none;
-      border-radius: 4px;
+    button[type="submit"] {
       background-color: #28a745;
       color: white;
+      border: none;
       cursor: pointer;
       transition: background-color 0.3s ease;
     }
 
-    button:hover {
+    button[type="submit"]:hover {
       background-color: #218838;
     }
+
   </style>
 </head>
 <body>
@@ -110,7 +109,10 @@
       <h2><%= item.getTitle() %></h2>
       <p class="price">$<%= item.getPrice() %></p>
       <p>Stock: <%= item.getStock() %></p>
-      <button>Add to Cart</button>
+      <form action="addToCart" method="post">
+        <input type="hidden" name="itemId" value="<%= item.getId() %>">
+        <button type="submit">Add to Cart</button> <!-- Modified this line -->
+      </form>
     </div>
     <%
         }

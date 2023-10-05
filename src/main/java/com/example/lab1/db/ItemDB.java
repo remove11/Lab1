@@ -19,6 +19,28 @@ public class ItemDB extends Item {
         return v;
     }
 
+    public static Item getItemById(int itemId) throws SQLException {
+        Connection con = DBManager.getConnection();
+        String query = "SELECT * FROM Items WHERE id = ?";
+        Item item = null;
+
+        try (PreparedStatement ps = con.prepareStatement(query)) {
+            ps.setInt(1, itemId);
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                String title = rs.getString("title");
+                int price = rs.getInt("price");
+                int stock = rs.getInt("stock");
+                item = Item.createItem(title, price, stock);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new SQLException("Error fetching item with ID: " + itemId, e);
+        }
+        return item;
+    }
+
     private ItemDB(String title, int price, int stock) {
         super(title, price, stock);
     }
@@ -32,7 +54,6 @@ public class ItemDB extends Item {
             ps.setInt(3, i.getStock());
             ps.execute();
         }
-        System.out.println("Item have been added to DB=" + i.getTitle());
     }
 
     public static ArrayList<Item> getItems() throws SQLException {
@@ -43,9 +64,10 @@ public class ItemDB extends Item {
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 String title = rs.getString("title");
+                int id = rs.getInt("id");
                 int price = rs.getInt("price");
                 int stock = rs.getInt("stock");
-                Item item = Item.createItem(title, price, stock);
+                Item item = Item.createItem(id, title, price, stock);
                 list.add(item);
             }
         } catch (SQLException e) {
@@ -53,5 +75,7 @@ public class ItemDB extends Item {
         }
         return list;
     }
+
+
 
 }

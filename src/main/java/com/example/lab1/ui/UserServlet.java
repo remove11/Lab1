@@ -1,4 +1,4 @@
-package com.example.lab1.bo;
+package com.example.lab1.ui;
 
 import com.example.lab1.db.userDB;
 import jakarta.servlet.ServletException;
@@ -50,14 +50,10 @@ public class UserServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // Hämta användarens session (om den finns)
         HttpSession session = request.getSession(false);
-
         if (session != null) {
-
             session.invalidate();
         }
-
         response.sendRedirect("index.jsp");
     }
 

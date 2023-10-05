@@ -1,20 +1,32 @@
 package com.example.lab1.bo;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class Cart {
-    private int id;
-    private int userId;
     private List<Item> items;
 
-    protected Cart(int id, int userId, List<Item> items) {
-        this.id = id;
-        this.userId = userId;
+    public Cart() {
+        this.items = new ArrayList<>();
+    }
+
+    public List<Item> getItems() {
+        return items;
+    }
+
+    public void setItems(List<Item> items) {
         this.items = items;
     }
 
-    public void createCart(){
-
+    public void removeItem(int itemId) {
+        Iterator<Item> iterator = items.iterator();
+        while (iterator.hasNext()) {
+            Item item = iterator.next();
+            if (item.getId() == itemId) {
+                iterator.remove();
+                break;
+            }
+        }
     }
-
 }

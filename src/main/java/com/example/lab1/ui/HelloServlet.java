@@ -1,7 +1,9 @@
-package com.example.lab1.bo;
+package com.example.lab1.ui;
 
 import java.io.*;
 import java.sql.SQLException;
+
+import com.example.lab1.bo.Item;
 import com.example.lab1.db.DBManager;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
@@ -30,7 +32,7 @@ public class HelloServlet extends HttpServlet {
         String title = request.getParameter("title");
         int price = Integer.parseInt(request.getParameter("price"));
         int stock = Integer.parseInt(request.getParameter("stock"));
-        Item item = new Item(title, price, stock);
+        Item item = Item.createItem(title, price, stock);
         try {
             item.save();
         } catch (SQLException e) {
