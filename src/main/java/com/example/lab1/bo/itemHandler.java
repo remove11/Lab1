@@ -20,7 +20,7 @@ public class itemHandler
     }*/
 
     public static void save(ItemDTO itemDTO)  {
-        Item item = new Item(itemDTO.getId(),itemDTO.getTitle(),itemDTO.getPrice(),itemDTO.getStock());
+        Item item = new Item(itemDTO.getTitle(),itemDTO.getPrice(),itemDTO.getStock());
         ItemDB.saveToDb(item);
     }
 

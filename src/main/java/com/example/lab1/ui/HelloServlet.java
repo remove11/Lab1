@@ -36,14 +36,16 @@ public class HelloServlet extends HttpServlet {
 
     }
 
-    public void doPost(HttpServletRequest request, HttpServletResponse response) {
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setContentType("text/html");
         //DBManager.getConnection();
         String title = request.getParameter("title");
         int price = Integer.parseInt(request.getParameter("price"));
         int stock = Integer.parseInt(request.getParameter("stock"));
         ItemDTO item = new ItemDTO(title, price, stock);
+        System.out.println("PRISSSS" + price);
         itemHandler.save(item);
+        response.sendRedirect("ItemInsert.jsp");
     }
 
     public static ArrayList<ItemDTO> getItems(){

@@ -75,7 +75,7 @@
 
 <div class="container">
     <h1>Insert New Item</h1>
-    <form action="ItemsList.jsp" method="post"> <!-- doPost -->
+    <form action="items" method="post"> <!-- doPost -->
         <label for="title">Title:</label>
         <input type="text" id="title" name="title" required>
 

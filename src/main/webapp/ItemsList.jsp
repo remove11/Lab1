@@ -87,16 +87,16 @@
   <h1>Current Items</h1>
 
   <%
-    String title = request.getParameter("title");
+   /* String title = request.getParameter("title");
     if (title != null && !title.isEmpty()) {
       int price = Integer.parseInt(request.getParameter("price"));
       int stock = Integer.parseInt(request.getParameter("stock"));
       ItemDTO item = new ItemDTO(title, price, stock);
-      itemHandler.save(item);      
+      itemHandler.save(item);    */
   %>
   <p style="color: green; text-align: center;">Item Added Successfully!</p>
   <%
-    //}
+   // }
   %>
 
   <div class="product-grid">
