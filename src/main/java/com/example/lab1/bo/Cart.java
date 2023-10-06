@@ -15,8 +15,8 @@ public class Cart {
         return items;
     }
 
-    public void setItems(List<Item> items) {
-        this.items = items;
+    public void clear(){
+        items.clear();
     }
 
     public void removeItem(int itemId) {

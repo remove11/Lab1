@@ -17,7 +17,6 @@ import java.sql.SQLException;
 public class AddToCartServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, IOException {
         int itemId = Integer.parseInt(request.getParameter("itemId"));
-
         HttpSession session = request.getSession();
         Cart cart = (Cart) session.getAttribute("cart");
         if (cart == null) {
@@ -33,7 +32,6 @@ public class AddToCartServlet extends HttpServlet {
 
         cart.getItems().add(item);
         session.setAttribute("cart", cart);
-
         response.sendRedirect("ItemsList.jsp");
     }
 }

@@ -42,10 +42,6 @@ public class Item {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public String getTitle() {
         return title;
     }
@@ -58,10 +54,6 @@ public class Item {
         return price;
     }
 
-    public void setPrice(int price) {
-        this.price = price;
-    }
-
     public int getStock() {
         return stock;
     }
@@ -69,5 +61,6 @@ public class Item {
     public void setStock(int stock) {
         this.stock = stock;
     }
+
 }
 

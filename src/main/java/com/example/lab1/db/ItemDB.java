@@ -23,16 +23,15 @@ public class ItemDB extends Item {
         Connection con = DBManager.getConnection();
         String query = "SELECT * FROM Items WHERE id = ?";
         Item item = null;
-
         try (PreparedStatement ps = con.prepareStatement(query)) {
             ps.setInt(1, itemId);
             ResultSet rs = ps.executeQuery();
-
             if (rs.next()) {
                 String title = rs.getString("title");
+                int id = rs.getInt("id");
                 int price = rs.getInt("price");
                 int stock = rs.getInt("stock");
-                item = Item.createItem(title, price, stock);
+                item = Item.createItem(id, title, price, stock);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -43,6 +42,19 @@ public class ItemDB extends Item {
 
     private ItemDB(String title, int price, int stock) {
         super(title, price, stock);
+    }
+
+    public static void updateItemStock(Item item) throws SQLException {
+        Connection con = DBManager.getConnection();
+        String query = "UPDATE Items SET stock = ? WHERE id = ?";
+        try (PreparedStatement ps = con.prepareStatement(query)) {
+            ps.setInt(1, item.getStock());
+            ps.setInt(2, item.getId());
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new SQLException("Error updating stock for item with ID: " + item.getId(), e);
+        }
     }
 
     public static void saveToDb(Item i) throws SQLException {

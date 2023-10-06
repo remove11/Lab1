@@ -111,7 +111,15 @@
       <p>Stock: <%= item.getStock() %></p>
       <form action="addToCart" method="post">
         <input type="hidden" name="itemId" value="<%= item.getId() %>">
-        <button type="submit">Add to Cart</button> <!-- Modified this line -->
+        <%
+          String buttonAttribute = "";
+          String buttonText = "Add to Cart";
+          if (item.getStock() <= 0){
+            buttonAttribute = "disabled";
+            buttonText = "Out of Stock";
+          }
+        %>
+        <button type="submit" <%=buttonAttribute%>><%=buttonText%></button> <!-- Modified this line -->
       </form>
     </div>
     <%

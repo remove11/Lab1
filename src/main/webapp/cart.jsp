@@ -101,7 +101,9 @@
   </table>
 
   <p>Total Price: $<%= totalPrice %></p>
-
+  <form action="checkout" method="post">
+    <button type="submit">Checkout</button>
+  </form>
   <% } else { %>
   <p>Your cart is empty</p>
   <% } %>
