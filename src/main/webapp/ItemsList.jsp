@@ -92,13 +92,11 @@
       int price = Integer.parseInt(request.getParameter("price"));
       int stock = Integer.parseInt(request.getParameter("stock"));
       ItemDTO item = new ItemDTO(title, price, stock);
-
-      DBManager.getConnection();  // Ensure DB connection is established
-      itemHandler.save(item);
+      itemHandler.save(item);      
   %>
   <p style="color: green; text-align: center;">Item Added Successfully!</p>
   <%
-    }
+    //}
   %>
 
   <div class="product-grid">

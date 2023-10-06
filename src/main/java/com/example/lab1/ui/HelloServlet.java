@@ -18,7 +18,7 @@ import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 
 
-@WebServlet(name = "helloServlet", value = "/hello-servlet")
+@WebServlet(name = "helloServlet", value = "/items")
 public class HelloServlet extends HttpServlet {
     private String message;
 
@@ -31,13 +31,9 @@ public class HelloServlet extends HttpServlet {
         response.setContentType("text/html");
         List<ItemDTO> itemDTOList = getItems();
         request.setAttribute("items", itemDTOList);
-        request.getRequestDispatcher("/itemsList.jsp").forward(request, response);
+        request.getRequestDispatcher("/ItemsList.jsp").forward(request, response);
         // Hello
-        PrintWriter out = response.getWriter();
-        out.println("<html><body>");
-        out.println("<h1>doGet</h1>");
-        out.println("<h1>" + message + "</h1>");
-        out.println("</body></html>");
+
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) {
