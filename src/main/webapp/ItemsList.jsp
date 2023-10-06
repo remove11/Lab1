@@ -3,6 +3,11 @@
 <%@ page import="com.example.lab1.db.ItemDB" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.sql.SQLException" %>
+<%@ page import="com.example.lab1.ui.ItemDTO" %>
+<%@ page import="com.example.lab1.bo.itemHandler" %>
+<%@ page import="java.util.List" %>
+<%@ page import="com.example.lab1.ui.HelloServlet" %>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -82,28 +87,22 @@
 
   <%
     String title = request.getParameter("title");
-    if(title != null && !title.isEmpty()) {
+    if (title != null && !title.isEmpty()) {
       int price = Integer.parseInt(request.getParameter("price"));
       int stock = Integer.parseInt(request.getParameter("stock"));
-      Item item = Item.createItem(title, price, stock);
-      try {
-        DBManager.getConnection();
-        item.save();
+      ItemDTO item = new ItemDTO(title, price, stock);
+      itemHandler.save(item);
   %>
   <p style="color: green; text-align: center;">Item Added Successfully!</p>
   <%
-      } catch (SQLException e) {
-        e.printStackTrace();
-      }
-    }
+    //}
   %>
 
   <div class="product-grid">
     <%
-      ArrayList<Item> items;
-      try {
-        items = ItemDB.getItems();
-        for (Item item : items) {
+      List<ItemDTO> items;
+      items = (List<ItemDTO>) request.getAttribute("items");
+      for (int i =0; i<items.size(); i++) {
     %>
     <div class="product">
       <h2><%= item.getTitle() %></h2>
@@ -121,15 +120,15 @@
         %>
         <button type="submit" <%=buttonAttribute%>><%=buttonText%></button> <!-- Modified this line -->
       </form>
+      <h2><%= items.get(i).getTitle() %></h2>
+      <p class="price">$<%= items.get(i).getPrice() %></p>
+      <p>Stock: <%= items.get(i).getStock() %></p>
+      <button>Add to Cart</button>
     </div>
     <%
-        }
-      } catch (SQLException e) {
-        e.printStackTrace();
       }
     %>
   </div>
 </div>
-
 </body>
 </html>

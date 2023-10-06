@@ -10,13 +10,7 @@ public class Item {
     private int price;
     private int stock;
 
-    public static Collection searchItems(String group) throws SQLException {
-        return ItemDB.searchItems(group);
-    }
 
-    public void save() throws SQLException {
-        ItemDB.saveToDb(this);
-    }
 
     public static Item createItem(String title, int price, int stock){
             return new Item(title, price, stock);

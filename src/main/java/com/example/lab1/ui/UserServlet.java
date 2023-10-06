@@ -1,6 +1,6 @@
 package com.example.lab1.ui;
 
-import com.example.lab1.db.userDB;
+import com.example.lab1.bo.userHandler;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -12,14 +12,18 @@ import java.io.IOException;
 
 @WebServlet(name = "UserServlet", value = "/UserServlet")
 public class UserServlet extends HttpServlet {
+
     private void login(HttpServletRequest request, HttpServletResponse response)  throws ServletException, IOException
     {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-        if (userDB.authenticate(username, password)) {
+        // Anropa en tjänst i ditt datalager för att kontrollera inloggningen
+        UserDTO user = userHandler.authenticate(username, password);
+        if (user != null) {
+            // Inloggning lyckades
             HttpSession session = request.getSession();
             session.setAttribute("username", username);
-            if (userDB.isAdmin(username)){
+            if (userHandler.isAdmin(username)){
                 session.setAttribute("isAdmin", true);
                 response.sendRedirect("ItemInsert.jsp"); // Ersätt med din målsida
             }else {
@@ -34,8 +38,8 @@ public class UserServlet extends HttpServlet {
     private void register(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-        boolean isAdmin = (request.getParameter("isAdmin") != null);
-        userDB.register(username, password, isAdmin);
+        boolean isAdmin = (request.getParameter("isAdmin") != null); // Check if the isAdmin checkbox is checked
+        userHandler.register(username, password, isAdmin);
         response.sendRedirect("login.jsp");
     }
 

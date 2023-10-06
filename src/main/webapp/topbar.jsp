@@ -62,6 +62,10 @@
     <nav>
         <a href="ItemInsert.jsp">Insert Item</a>
         <a href="ItemsList.jsp">Items List</a>
+        <a href="/items">Items List</a>
+        <a href="hello-servlet">Hello</a>
+
+
         <% if (username != null) { %>
         <li><span>Hello, <%= username %>!</span></li>
         <form id="LogoutForm" action="UserServlet" method="get">

@@ -1,5 +1,7 @@
 package com.example.lab1.bo;
 
+import com.example.lab1.db.userDB;
+
 public class User
 {
     private int Id;
@@ -12,6 +14,48 @@ public class User
         this.name = name;
         this.password = password;
         this.isAdmin = isAdmin;
+    }
+    public int getId() {
+        return Id;
+    }
+
+    public void setId(int id) {
+        Id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public Boolean getAdmin() {
+        return isAdmin;
+    }
+
+    public void setAdmin(Boolean admin) {
+        isAdmin = admin;
+    }
+
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "Id=" + Id +
+                ", name='" + name + '\'' +
+                ", password='" + password + '\'' +
+                ", isAdmin=" + isAdmin +
+                '}';
     }
 
 }
