@@ -8,7 +8,7 @@ import java.util.Collection;
 import java.util.Vector;
 
 public class ItemDB extends Item {
-    public static Collection searchItems(String group) throws SQLException {
+   /* public static Collection searchItems(String group) throws SQLException {
         Vector v = new Vector();
         Connection con = DBManager.getConnection();
         Statement st = con.createStatement();
@@ -19,13 +19,13 @@ public class ItemDB extends Item {
             //v.addElement(new ItemDB(i, name));
         }
         return v;
-    }
+    }*/
 
     private ItemDB(String title, int price, int stock) {
         super(title, price, stock);
     }
 
-    public static void saveToDb(Item i) throws SQLException {
+    public static void saveToDb(Item i)  {
         Connection con = DBManager.getConnection();
         String query = "INSERT INTO Items (title, price, stock) VALUES (?, ?, ?)";
         try (PreparedStatement ps = con.prepareStatement(query)) {
@@ -33,11 +33,13 @@ public class ItemDB extends Item {
             ps.setInt(2, i.getPrice());
             ps.setInt(3, i.getStock());
             ps.execute();
+        }catch (SQLException s){
+            s.printStackTrace();
         }
         System.out.println("Item have been added to DB=" + i.getTitle());
     }
 
-    public static ArrayList<Item> getItems() throws SQLException {
+    public static ArrayList<Item> getItems(){
         ArrayList<Item> list = new ArrayList<>();
         Connection con = DBManager.getConnection();
         String query = "SELECT * FROM Items";
@@ -47,7 +49,7 @@ public class ItemDB extends Item {
                 String title = rs.getString("title");
                 int price = rs.getInt("price");
                 int stock = rs.getInt("stock");
-                Item item = Item.createItem(title, price, stock);  // Using factory method to create Item object
+                Item item = new Item(title, price, stock);  // Using factory method to create Item object
                 list.add(item);
             }
         } catch (SQLException e) {

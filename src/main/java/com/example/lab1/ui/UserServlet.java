@@ -1,6 +1,6 @@
-package com.example.lab1.bo;
+package com.example.lab1.ui;
 
-import com.example.lab1.db.userDB;
+import com.example.lab1.bo.userHandler;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -12,16 +12,18 @@ import java.io.IOException;
 
 @WebServlet(name = "UserServlet", value = "/UserServlet")
 public class UserServlet extends HttpServlet {
+
     private void login(HttpServletRequest request, HttpServletResponse response)  throws ServletException, IOException
     {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         // Anropa en tjänst i ditt datalager för att kontrollera inloggningen
-        if (userDB.authenticate(username, password)) {
+        UserDTO user = userHandler.authenticate(username, password);
+        if (user != null) {
             // Inloggning lyckades
             HttpSession session = request.getSession();
             session.setAttribute("username", username);
-            if (userDB.isAdmin(username)){
+            if (userHandler.isAdmin(username)){
                 session.setAttribute("isAdmin", true);
                 response.sendRedirect("ItemInsert.jsp"); // Ersätt med din målsida
             }else {
@@ -29,7 +31,7 @@ public class UserServlet extends HttpServlet {
                 response.sendRedirect("index.jsp");
             }
         } else {
-            // Inloggning misslyckades
+            System.out.println("FELLLLLL");
             request.setAttribute("errorMessage", "Felaktigt användarnamn eller lösenord");
             request.getRequestDispatcher("login.jsp").forward(request, response);
         }
@@ -39,11 +41,10 @@ public class UserServlet extends HttpServlet {
         String password = request.getParameter("password");
         boolean isAdmin = (request.getParameter("isAdmin") != null); // Check if the isAdmin checkbox is checked
 
-        // Anropa din register-metod för att lägga till användaren i databasen
-        userDB.register(username, password, isAdmin);
 
-        // Redirect to a confirmation page or wherever you want
-        response.sendRedirect("login.jsp"); // Replace with your desired page
+        userHandler.register(username, password, isAdmin);
+
+        response.sendRedirect("login.jsp");
     }
 
     @Override

@@ -1,32 +1,20 @@
-package com.example.lab1.bo;
+package com.example.lab1.ui;
 
-import com.example.lab1.db.ItemDB;
-
-import java.sql.SQLException;
-import java.util.Collection;
-
-public class Item {
+public class ItemDTO
+{
     private int id;
     private String title;
     private int price;
     private int stock;
 
-
-
-    public static Item createItem(String title, int price, int stock){
-            return new Item(title, price, stock);
-    }
-
-
-    public Item(int id,String title, int price, int stock) {
+    public ItemDTO(int id,String title, int price, int stock) {
 
         this.id = id;
         this.title = title;
         this.price = price;
         this.stock = stock;
     }
-    public Item(String title, int price, int stock)
-    {
+    public ItemDTO(String title, int price, int stock) {
         this.title = title;
         this.price = price;
         this.stock = stock;
@@ -46,6 +34,4 @@ public class Item {
     public int getStock() {
         return stock;
     }
-
 }
-
