@@ -16,7 +16,7 @@ public class DBManager {
     private DBManager(){
         try{
             Class.forName("com.mysql.jdbc.Driver").newInstance();
-            con = DriverManager.getConnection("jdbc:mysql://localhost/webshopDB?user=root&password=g1234567");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/webshopDB?user=root&password=snashen");
             System.out.println("Connected to DB" );
 
 
