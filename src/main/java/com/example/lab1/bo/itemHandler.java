@@ -36,4 +36,13 @@ public class itemHandler
         }
         return (ArrayList<ItemDTO>) value.clone();
     }
+    public static ItemDTO getItemByID(int id){
+        Item item = ItemDB.getItemById(id);
+        return new ItemDTO(item.getId(), item.getTitle(), item.getPrice(), item.getStock());
+
+    }
+    public static void updateItemStock(ItemDTO item){
+        Item tmp  = new Item(item.getId(),item.getTitle(), item.getPrice(), item.getStock());
+        ItemDB.updateItemStock(tmp);
+    }
 }

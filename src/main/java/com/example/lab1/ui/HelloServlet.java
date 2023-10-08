@@ -42,7 +42,7 @@ public class HelloServlet extends HttpServlet {
         response.sendRedirect("ItemInsert.jsp");
     }
 
-    public static ArrayList<ItemDTO> getItems(){
+    private static ArrayList<ItemDTO> getItems(){
 
        return itemHandler.getItems();
     }

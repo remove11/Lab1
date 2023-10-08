@@ -98,22 +98,34 @@
   <%
    // }
   %>
-
-  <div class="product-grid">
-    <%
-      List<ItemDTO> items;
-      items = (List<ItemDTO>) request.getAttribute("items");
-      for (int i =0; i<items.size(); i++) {
-    %>
-    <div class="product">
-      <h2><%= items.get(i).getTitle() %></h2>
-      <p class="price">$<%= items.get(i).getPrice() %></p>
-      <p>Stock: <%= items.get(i).getStock() %></p>
-      <button>Add to Cart</button>
+   <div class="product-grid">
+       <%
+         ArrayList<ItemDTO> items;
+           items = (ArrayList<ItemDTO>) request.getAttribute("items");
+           for (ItemDTO item : items) {
+       %>
+       <div class="product">
+         <h2><%= item.getTitle() %></h2>
+         <p class="price">$<%= item.getPrice() %></p>
+         <p>Stock: <%= item.getStock() %></p>
+         
+         <form action="addToCart" method="post">
+           <input type="hidden" name="itemId" value="<%= item.getId() %>">
+           <%
+             String buttonAttribute = "";
+             String buttonText = "Add to Cart";
+             if (item.getStock() <= 0){
+               buttonAttribute = "disabled";
+               buttonText = "Out of Stock";
+             }
+        %>
+        <button type="submit" <%=buttonAttribute%>><%=buttonText%></button> <!-- Modified this line -->
+      </form>
     </div>
-    <%
-      }
-    %>
+
+     <%
+         }
+         %>
   </div>
 </div>
 </body>

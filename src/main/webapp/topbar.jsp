@@ -1,6 +1,11 @@
+<%@ page import="com.example.lab1.bo.Cart" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%  session = request.getSession(false); %>
 <% String username = (session != null) ? (String) session.getAttribute("username") : null; %>
+<%
+    Cart cart = (Cart) session.getAttribute("cart");
+    int cartSize = (cart != null && cart.getItems() != null) ? cart.getItems().size() : 0;
+%>
 
 <header>
     <style>
@@ -60,6 +65,6 @@
     </nav>
     <div class="cart">
         <a href="cart.jsp"><img src="cart-icon.png" alt="Shopping Cart"></a>
-        <div class="cart-count">0</div>
+        <div class="cart-count"><%=cartSize%></div>
     </div>
 </header>
