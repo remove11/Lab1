@@ -69,8 +69,9 @@ public class ItemDB extends Item {
             while (rs.next()) {
                 String title = rs.getString("title");
                 int price = rs.getInt("price");
+                int id = rs.getInt("id");
                 int stock = rs.getInt("stock");
-                Item item = createItem(title, price, stock);  // Using factory method to create Item object
+                Item item = createItem(id, title, price, stock);  // Using factory method to create Item object
                 list.add(item);
             }
         } catch (SQLException e) {

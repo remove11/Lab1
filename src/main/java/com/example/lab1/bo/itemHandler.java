@@ -7,18 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collection;
 
-public class itemHandler
-{
-
-   /* public static Collection<ItemDTO> searchItems(String group) throws SQLException {
-       Collection items = ItemDB.searchItems(group);
-       Collection<ItemDTO> value = new ArrayList<>();
-        while (items.iterator().hasNext()){
-            value.add(new ItemDTO())
-        }
-        return ItemDB.searchItems(group);
-    }*/
-
+public class itemHandler{
     public static void save(ItemDTO itemDTO)  {
         Item item = new Item(itemDTO.getId(),itemDTO.getTitle(),itemDTO.getPrice(),itemDTO.getStock());
         ItemDB.saveToDb(item);

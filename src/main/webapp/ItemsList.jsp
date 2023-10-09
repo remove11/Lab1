@@ -95,14 +95,15 @@
   %>
   <p style="color: green; text-align: center;">Item Added Successfully!</p>
   <%
-    //}
+    }
   %>
 
   <div class="product-grid">
     <%
-      List<ItemDTO> items;
-      items = (List<ItemDTO>) request.getAttribute("items");
-      for (int i =0; i<items.size(); i++) {
+      List<ItemDTO> items = (List<ItemDTO>) itemHandler.getItems();
+      if (items != null) {
+        for (int i =0; i<items.size(); i++) {
+          ItemDTO item = items.get(i);
     %>
     <div class="product">
       <h2><%= item.getTitle() %></h2>
@@ -120,12 +121,9 @@
         %>
         <button type="submit" <%=buttonAttribute%>><%=buttonText%></button> <!-- Modified this line -->
       </form>
-      <h2><%= items.get(i).getTitle() %></h2>
-      <p class="price">$<%= items.get(i).getPrice() %></p>
-      <p>Stock: <%= items.get(i).getStock() %></p>
-      <button>Add to Cart</button>
     </div>
     <%
+        }
       }
     %>
   </div>

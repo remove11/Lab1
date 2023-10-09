@@ -70,6 +70,7 @@
 
   <%
     Cart cart = (Cart) session.getAttribute("cart");
+
     if(cart != null && cart.getItems().size() > 0) {
       List<Item> items = cart.getItems();
       double totalPrice = 0;

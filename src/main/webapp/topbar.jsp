@@ -61,9 +61,7 @@
     </style>
     <nav>
         <a href="ItemInsert.jsp">Insert Item</a>
-        <a href="ItemsList.jsp">Items List</a>
-        <a href="/items">Items List</a>
-        <a href="hello-servlet">Hello</a>
+        <a href="items">Items List</a>
 
 
         <% if (username != null) { %>

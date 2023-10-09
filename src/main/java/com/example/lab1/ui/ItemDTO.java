@@ -19,6 +19,7 @@ public class ItemDTO
         this.price = price;
         this.stock = stock;
     }
+
     public String getTitle() {
         return title;
     }

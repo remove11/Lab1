@@ -13,12 +13,13 @@ import com.example.lab1.bo.Item;
 import com.example.lab1.bo.itemHandler;
 import com.example.lab1.db.DBManager;
 import com.example.lab1.db.ItemDB;
+import com.example.lab1.ui.ItemDTO;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 
 
-@WebServlet(name = "helloServlet", value = "/items")
+@WebServlet("/items")
 public class HelloServlet extends HttpServlet {
     private String message;
 
@@ -32,13 +33,12 @@ public class HelloServlet extends HttpServlet {
         List<ItemDTO> itemDTOList = getItems();
         request.setAttribute("items", itemDTOList);
         request.getRequestDispatcher("/ItemsList.jsp").forward(request, response);
-        // Hello
 
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) {
         response.setContentType("text/html");
-        //DBManager.getConnection();
+        DBManager.getConnection();
         String title = request.getParameter("title");
         int price = Integer.parseInt(request.getParameter("price"));
         int stock = Integer.parseInt(request.getParameter("stock"));

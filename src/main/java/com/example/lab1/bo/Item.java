@@ -56,5 +56,14 @@ public class Item {
         this.stock = stock;
     }
 
+    @Override
+    public String toString() {
+        return "Item{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", price=" + price +
+                ", stock=" + stock +
+                '}';
+    }
 }
 
