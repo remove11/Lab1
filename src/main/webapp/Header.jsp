@@ -3,7 +3,6 @@
   User: Alexander Fredholm & George Bahadi
 --%>
 
-<%@ page import="java.util.ArrayList" %>
 <%@ page contentType="text/html; charset=UTF-8" language="java" %>
 <%-- Check if the user is logged in --%>
 <%  session = request.getSession(false); %>

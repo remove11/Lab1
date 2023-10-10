@@ -1,13 +1,7 @@
 <%--
   User: Alexander Fredholm & George Bahadi
 --%>
-<%@ page import="com.example.lab1.db.DBManager" %>
-<%@ page import="com.example.lab1.bo.Item" %>
-<%@ page import="com.example.lab1.db.ItemDB" %>
-<%@ page import="java.util.ArrayList" %>
-<%@ page import="java.sql.SQLException" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import="java.io.*, java.util.*" %>
 
 <%
     Boolean isAdmin = (Boolean) session.getAttribute("isAdmin");

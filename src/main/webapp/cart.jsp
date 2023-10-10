@@ -1,5 +1,4 @@
 <%@ page import="com.example.lab1.bo.Cart" %>
-<%@ page import="com.example.lab1.bo.Item" %>
 <%@ page import="java.util.List" %>
 <%@ page import="com.example.lab1.ui.ItemDTO" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>

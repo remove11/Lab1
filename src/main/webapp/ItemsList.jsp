@@ -1,16 +1,8 @@
 <%--
   User: Alexander Fredholm & George Bahadi
 --%>
-<%@ page import="com.example.lab1.db.DBManager" %>
-<%@ page import="com.example.lab1.bo.Item" %>
-<%@ page import="com.example.lab1.db.ItemDB" %>
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="java.sql.SQLException" %>
 <%@ page import="com.example.lab1.ui.ItemDTO" %>
-<%@ page import="com.example.lab1.bo.itemHandler" %>
-<%@ page import="java.util.List" %>
-<%@ page import="com.example.lab1.ui.HelloServlet" %>
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
