@@ -69,7 +69,6 @@
 
 <div class="container">
   <h2>Your Shopping Cart</h2>
-
   <%
     Cart cart = (Cart) session.getAttribute("cart");
     if(cart != null && cart.getItems().size() > 0) {
@@ -101,7 +100,6 @@
       }
     %>
   </table>
-
   <p>Total Price: $<%= totalPrice %></p>
   <form action="checkout" method="post">
     <button type="submit">Checkout</button>
@@ -109,9 +107,7 @@
   <% } else { %>
   <p>Your cart is empty</p>
   <% } %>
-
   <a href="/items">Continue Shopping</a>
 </div>
-
 </body>
 </html>

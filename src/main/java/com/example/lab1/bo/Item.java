@@ -11,11 +11,17 @@ public class Item {
     private int price;
     private int stock;
 
-
+    /**
+     * Skapar item
+     * @param id
+     * @param title
+     * @param price
+     * @param stock
+     * @return
+     */
     public static Item createItem(int id, String title, int price, int stock){
             return new Item(id,title, price, stock);
     }
-
 
     protected Item(int id,String title, int price, int stock) {
         this.id = id;

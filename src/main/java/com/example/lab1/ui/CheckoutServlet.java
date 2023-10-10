@@ -1,11 +1,9 @@
-
 /**
  * Lab1
  * Arthur: Alexander Fredholm & George Bahadi
  */
 
 package com.example.lab1.ui;
-
 import com.example.lab1.bo.Cart;
 import com.example.lab1.bo.itemHandler;
 import jakarta.servlet.ServletException;
@@ -16,9 +14,10 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 
-import java.io.IOException;
-import java.sql.SQLException;
-
+/**
+ * Checkout servlet
+ * Hämtar items ur listan och tar bort ut lager
+ */
 @WebServlet("/checkout")
 public class CheckoutServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)

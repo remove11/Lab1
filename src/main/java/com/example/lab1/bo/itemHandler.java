@@ -4,21 +4,18 @@
  */
 
 package com.example.lab1.bo;
-
 import com.example.lab1.db.ItemDB;
 import com.example.lab1.ui.ItemDTO;
 import java.util.ArrayList;
 
 /**
- * The `itemHandler` class provides functionality for managing items, including
- * saving new items, retrieving item lists, retrieving items by ID, and updating
- * item stock.
+ * itemHandler sparar items i databasen via itemDTO
  */
 public class itemHandler {
 
     /**
-     * Saves item to database
-     * @param itemDTO The ItemDTO object representing the item to be saved.
+     * Skapar item via ItemDTO
+     * @param itemDTO
      */
     public static void save(ItemDTO itemDTO) {
         Item item = new Item(itemDTO.getTitle(), itemDTO.getPrice(), itemDTO.getStock());
@@ -26,12 +23,11 @@ public class itemHandler {
     }
 
     /**
-     * Retrieves a list of items from the database.
-     * @return An ArrayList of ItemDTO objects representing the retrieved items.
+     * Hämtar en lista från databasen
+     * @return clone av ArrayList med ItemDTO objects
      */
     public static ArrayList<ItemDTO> getItems() {
         ArrayList<Item> items = ItemDB.getItems();
-
         ArrayList<ItemDTO> value = new ArrayList<>();
         for (int i = 0; i < items.size(); i++) {
             value.add(new ItemDTO(items.get(i).getId(), items.get(i).getTitle(), items.get(i).getPrice(), items.get(i).getStock()));
@@ -40,9 +36,9 @@ public class itemHandler {
     }
 
     /**
-     * Retrieves an item by its unique ID.
-     * @param id The ID of the item to retrieve.
-     * @return An ItemDTO object representing the retrieved item
+     * Hämtar item med id
+     * @param id
+     * @return om de inte finns de item så returerar null annars en kopia på item
      */
     public static ItemDTO getItemByID(int id) {
         Item item = ItemDB.getItemById(id);
@@ -54,8 +50,8 @@ public class itemHandler {
     }
 
     /**
-     * Updates the stock of an item in the database.
-     * @param item The ItemDTO object representing the item with updated stock.
+     * Uppdaterar stock i databasen via itemDB.update...
+     * @param item
      */
     public static void updateItemStock(ItemDTO item) {
         Item tmp = Item.createItem(item.getId(), item.getTitle(), item.getPrice(), item.getStock());

@@ -15,9 +15,7 @@
 <html>
 <head>
   <title>Items</title>
-
     <%-- Css style --%>
-
   <style>
     body, html {
       margin: 0;
@@ -115,11 +113,9 @@
         <button type="submit" <%=buttonAttribute%>><%=buttonText%></button> <!-- Modified this line -->
       </form>
     </div>
-
      <%
          }
      %>
-
   </div>
 </div>
 </body>

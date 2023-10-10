@@ -1,19 +1,19 @@
-
 /**
  * Lab1
  * Arthur: Alexander Fredholm & George Bahadi
  */
 
 package com.example.lab1.ui;
-
 import com.example.lab1.bo.Cart;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-
 import java.io.IOException;
 
+/**
+ * Tar bort item ut kundvagn
+ */
 @WebServlet("/removeFromCart")
 public class RemoveFromCartServlet extends HttpServlet {
 

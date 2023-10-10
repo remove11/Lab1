@@ -1,4 +1,3 @@
-
 <%--
   User: Alexander Fredholm & George Bahadi
 --%>
@@ -7,12 +6,10 @@
 <%@ page import="com.example.lab1.db.ItemDB" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.sql.SQLException" %>
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="java.io.*, java.util.*" %>
 
 <%
-    // Check if the user is an admin
     Boolean isAdmin = (Boolean) session.getAttribute("isAdmin");
     if (isAdmin != null && isAdmin) {
 %>
@@ -20,7 +17,6 @@
 <head>
     <title>Insert New Item</title>
     <%-- Css style --%>
-
     <style>
         body, html {
             margin: 0;
@@ -77,24 +73,20 @@
 </head>
 <body>
 
-<jsp:include page="topbar.jsp"/> <!-- This line includes the top bar -->
+<jsp:include page="topbar.jsp"/>
 
 <div class="container">
     <h1>Insert New Item</h1>
     <form action="items" method="post"> <!-- doPost -->
         <label for="title">Title:</label>
         <input type="text" id="title" name="title" required>
-
         <label for="price">Price:</label>
         <input type="number" id="price" name="price" step="0.01" required>
-
         <label for="stock">Stock:</label>
         <input type="number" id="stock" name="stock" required>
-
         <input type="submit" value="Insert Item">
     </form>
 </div>
-
 </body>
 </html>
 <%

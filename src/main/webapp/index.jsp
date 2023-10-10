@@ -6,12 +6,10 @@
 <%@ page import="com.example.lab1.db.ItemDB" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.sql.SQLException" %>
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>Alex & George Webshop</title>
-
     <%-- Css style --%>
     <style>
         body, html {
@@ -86,9 +84,6 @@
         Nestled in the digital space, we’ve created a sanctuary where quality, value,
         and customer satisfaction are as cherished as the valued customers we serve.
     </p>
-
-
-
 </div>
 </body>
 </html>

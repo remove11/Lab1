@@ -13,15 +13,15 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
- * The `userDB` class provides database operations related to user
+ * Hämtar och lagrar User i db
  */
 public class userDB {
 
     /**
-     * Authenticates a user by checking their username and password in the database.
+     * Kollar om användare o lösenord stämmer mot db
      * @param username
      * @param password
-     * @return A User object representing the authenticated user
+     * @return En user som förfrågas
      */
     public static User authenticate(String username, String password) {
         Connection conn = DBManager.getConnection();
@@ -29,7 +29,6 @@ public class userDB {
             ps.setString(1, username);
             ps.setString(2, password);
             ResultSet rs = ps.executeQuery();
-
             if (rs.next()) {
                 return User.createUser(rs.getInt("ID"), rs.getString("username"), rs.getString("password"), rs.getBoolean("isAdmin"));
             } else {
@@ -37,14 +36,14 @@ public class userDB {
             }
         } catch (SQLException e) {
             e.printStackTrace();
-            return null; // I händelse av ett fel, returnera null eller hantera det på ett annat sätt
+            return null;
         }
     }
 
     /**
-     * Checks if a user is an administrator.
-     * @param username The username of the user to check.
-     * @return true if the user is an administrator, false otherwise.
+     * Kollar om en user är admin
+     * @param username
+     * @return true om user är admin
      */
     public static boolean isAdmin(String username) {
         boolean isAdmin = false;
@@ -60,15 +59,14 @@ public class userDB {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
         return isAdmin;
     }
 
     /**
-     * Registers a new user in the database.
+     * Registrerar en ny user i db
      * @param username
      * @param password
-     * @param isAdmin  true if the new user is an administrator, false otherwise.
+     * @param isAdmin
      */
     public static void register(String username, String password, Boolean isAdmin) {
         Connection connection = DBManager.getConnection();

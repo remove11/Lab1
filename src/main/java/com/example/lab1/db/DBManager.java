@@ -4,9 +4,13 @@
  */
 
 package com.example.lab1.db;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
+
+/**
+ * DBManager kopplar upp mot db
+ */
+
 
 public class DBManager {
     private static DBManager instance = null;

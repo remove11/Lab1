@@ -9,7 +9,6 @@
     Cart cart = (Cart) session.getAttribute("cart");
     int cartSize = (cart != null && cart.getItems() != null) ? cart.getItems().size() : 0;
 %>
-
 <header>
     <%-- Css style --%>
     <style>

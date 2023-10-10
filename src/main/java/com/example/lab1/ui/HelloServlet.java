@@ -1,31 +1,22 @@
-
 /**
  * Lab1
  * Arthur: Alexander Fredholm & George Bahadi
  */
 
 package com.example.lab1.ui;
-
 import java.io.*;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-
-
-import com.example.lab1.bo.Item;
 import com.example.lab1.bo.itemHandler;
-import com.example.lab1.db.DBManager;
-import com.example.lab1.db.ItemDB;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 
-
-
 @WebServlet(value = "/items")
+
+/**
+ * Kontakt med itemlist och insertitem.
+ */
 
 public class HelloServlet extends HttpServlet {
 
@@ -46,6 +37,10 @@ public class HelloServlet extends HttpServlet {
         response.sendRedirect("ItemInsert.jsp");
     }
 
+    /**
+     * hämtar item via handler
+     * @return clonad lista
+     */
     private static ArrayList<ItemDTO> getItems(){
        return itemHandler.getItems();
     }

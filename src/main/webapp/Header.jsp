@@ -9,16 +9,11 @@
 <%  session = request.getSession(false); %>
 <% String username = (session != null) ? (String) session.getAttribute("username") : null; %>
 
-
 <html>
 <head>
   <title>Items</title>
-
   <%-- Css style --%>
-
   <style>
-
-
     header {
       background-color: #333;
       color: white;
@@ -68,16 +63,12 @@
 </head>
 <body>
 <header>
-
   <div class="cart">
     <a href="#"><img src="cart-icon.png" alt="Shopping Cart"></a>
     <div class="cart-count">0</div>
   </div>
   <nav>
     <ul>
-      <%-- <li><a href="home.jsp">Home</a></li>
-      <li><a href="profile.jsp">Profile</a></li>--%>
-      <%-- Only show logout and "Hello, [username]" if the user is logged in --%>
       <% if (username != null) { %>
       <li><span>Hello, <%= username %>!</span></li>
         <form id="LogoutForm" action="UserServlet" method="get">
@@ -93,7 +84,6 @@
     </ul>
   </nav>
 </header>
-
 </body>
 </html>
 

@@ -1,10 +1,13 @@
-
 /**
  * Lab1
  * Arthur: Alexander Fredholm & George Bahadi
  */
 
 package com.example.lab1.ui;
+
+/**
+ * ItemDTO är kopia på item
+ */
 
 public class ItemDTO
 {
@@ -39,6 +42,7 @@ public class ItemDTO
     public int getStock() {
         return stock;
     }
+
     public void setStock(int stock) {
         this.stock = stock;
     }

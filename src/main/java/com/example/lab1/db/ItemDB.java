@@ -10,26 +10,17 @@ import java.sql.*;
 import java.util.ArrayList;
 
 /**
- * The `ItemDB` class provides database operations for managing items.
+ * Hanterar kontakt med db
  */
 public class ItemDB extends Item {
-
-    /**
-     * Constructs a new `ItemDB` object with the specified title, price, and stock.
-     * This constructor is private to prevent direct instantiation.
-     * @param title The title of the item.
-     * @param price The price of the item.
-     * @param stock The stock quantity of the item.
-     */
 
     private ItemDB(String title, int price, int stock) {
         super(title, price, stock);
     }
 
     /**
-     * Saves a new item to the database.
-     *
-     * @param item The Item object to be saved.
+     * Sparar item till db
+     * @param item
      */
     public static void saveToDb(Item item) {
         Connection con = DBManager.getConnection();
@@ -47,10 +38,9 @@ public class ItemDB extends Item {
     }
 
     /**
-     * Retrieves an item from the database by its unique ID.
-     *
-     * @param itemId The ID of the item to retrieve.
-     * @return An Item object representing the retrieved item, or null if the item is not found.
+     * Hämtar item med id.
+     * @param itemId
+     * @return item
      */
     public static Item getItemById(int itemId) {
         Connection con = DBManager.getConnection();
@@ -73,9 +63,8 @@ public class ItemDB extends Item {
     }
 
     /**
-     * Updates the stock quantity of an item in the database.
-     *
-     * @param item The Item object representing the item with updated stock.
+     * Uppdaterar item i db
+     * @param item
      */
     public static void updateItemStock(Item item) {
         Connection con = DBManager.getConnection();
@@ -91,9 +80,8 @@ public class ItemDB extends Item {
 
 
     /**
-     * Retrieves a list of items from the database.
-     *
-     * @return An ArrayList of Item objects representing the retrieved items.
+     * Ger en lista med items från db
+     * @return list
      */
     public static ArrayList<Item> getItems() {
         ArrayList<Item> list = new ArrayList<>();
@@ -114,6 +102,4 @@ public class ItemDB extends Item {
         }
         return list;
     }
-
 }
-
