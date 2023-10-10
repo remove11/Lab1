@@ -1,3 +1,4 @@
+
 <%--
   User: Alexander Fredholm & George Bahadi
 --%>
@@ -19,6 +20,7 @@
 <head>
     <title>Insert New Item</title>
     <%-- Css style --%>
+
     <style>
         body, html {
             margin: 0;

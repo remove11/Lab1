@@ -1,3 +1,4 @@
+
 /**
  * Lab1
  * Arthur: Alexander Fredholm & George Bahadi
@@ -14,6 +15,9 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
+
+import java.io.IOException;
+import java.sql.SQLException;
 
 @WebServlet("/checkout")
 public class CheckoutServlet extends HttpServlet {

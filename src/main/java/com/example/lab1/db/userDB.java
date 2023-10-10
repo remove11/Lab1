@@ -12,9 +12,18 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+/**
+ * The `userDB` class provides database operations related to user
+ */
 public class userDB {
+
+    /**
+     * Authenticates a user by checking their username and password in the database.
+     * @param username
+     * @param password
+     * @return A User object representing the authenticated user
+     */
     public static User authenticate(String username, String password) {
-        // Använd JDBC för att kontrollera inloggningsuppgifter mot databasen
         Connection conn = DBManager.getConnection();
         try (PreparedStatement ps = conn.prepareStatement("SELECT * FROM Users WHERE username = ? AND password = ?")) {
             ps.setString(1, username);
@@ -22,48 +31,56 @@ public class userDB {
             ResultSet rs = ps.executeQuery();
 
             if (rs.next()) {
-                return new User(rs.getInt("ID"), rs.getString("username"), rs.getString("password"), rs.getBoolean("isAdmin"));
+                return User.createUser(rs.getInt("ID"), rs.getString("username"), rs.getString("password"), rs.getBoolean("isAdmin"));
             } else {
                 return null;
             }
         } catch (SQLException e) {
             e.printStackTrace();
-            System.out.println("Ett fel inträffade vid inloggning");
             return null; // I händelse av ett fel, returnera null eller hantera det på ett annat sätt
         }
     }
 
-
-
+    /**
+     * Checks if a user is an administrator.
+     * @param username The username of the user to check.
+     * @return true if the user is an administrator, false otherwise.
+     */
     public static boolean isAdmin(String username) {
         boolean isAdmin = false;
-            Connection connection = DBManager.getConnection();
-            String sql = "SELECT isAdmin FROM users WHERE username = ?";
-            try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
-                preparedStatement.setString(1, username);
-                try (ResultSet resultSet = preparedStatement.executeQuery()) {
-                    if (resultSet.next()) {
-                        isAdmin = resultSet.getBoolean("isAdmin");
-                    }
+        Connection connection = DBManager.getConnection();
+        String sql = "SELECT isAdmin FROM users WHERE username = ?";
+        try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+            preparedStatement.setString(1, username);
+            try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                if (resultSet.next()) {
+                    isAdmin = resultSet.getBoolean("isAdmin");
                 }
             }
-         catch (SQLException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
+
         return isAdmin;
     }
-    public static void register(String username, String password,Boolean isAdmin){
+
+    /**
+     * Registers a new user in the database.
+     * @param username
+     * @param password
+     * @param isAdmin  true if the new user is an administrator, false otherwise.
+     */
+    public static void register(String username, String password, Boolean isAdmin) {
         Connection connection = DBManager.getConnection();
-        String sql = "insert into users (username, password, isAdmin) value (?, ?, ?);";
-        try (PreparedStatement pr = connection.prepareStatement(sql)){
-            pr.setString(1,username);
-            pr.setString(2,password);
-            pr.setBoolean(3,isAdmin);
+        String sql = "INSERT INTO users (username, password, isAdmin) VALUES (?, ?, ?)";
+        try (PreparedStatement pr = connection.prepareStatement(sql)) {
+            pr.setString(1, username);
+            pr.setString(2, password);
+            pr.setBoolean(3, isAdmin);
             pr.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 }
-
 

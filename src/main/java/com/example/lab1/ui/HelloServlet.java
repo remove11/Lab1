@@ -1,3 +1,4 @@
+
 /**
  * Lab1
  * Arthur: Alexander Fredholm & George Bahadi
@@ -23,7 +24,9 @@ import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 
 
+
 @WebServlet(value = "/items")
+
 public class HelloServlet extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {

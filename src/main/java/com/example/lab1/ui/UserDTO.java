@@ -3,8 +3,12 @@
  * Arthur: Alexander Fredholm & George Bahadi
  */
 
-package com.example.lab1.ui;
 
+package com.example.lab1.ui;
+/**
+ * The `UserDTO` class represents a Data Transfer Object (DTO) for user-related data in the application.
+ * It provides a convenient way to encapsulate and transfer user information between different parts of the system.
+ */
 public class UserDTO
 {
    private boolean isAdmin;

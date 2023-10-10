@@ -11,6 +11,7 @@
 <html>
 <head>
     <title>Alex & George Webshop</title>
+
     <%-- Css style --%>
     <style>
         body, html {
@@ -89,7 +90,5 @@
 
 
 </div>
-<br/>
-
 </body>
 </html>

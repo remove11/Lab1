@@ -15,7 +15,9 @@
 <html>
 <head>
   <title>Items</title>
+
     <%-- Css style --%>
+
   <style>
     body, html {
       margin: 0;
@@ -117,6 +119,7 @@
      <%
          }
      %>
+
   </div>
 </div>
 </body>

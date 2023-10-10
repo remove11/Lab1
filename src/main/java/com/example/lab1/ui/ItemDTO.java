@@ -1,3 +1,4 @@
+
 /**
  * Lab1
  * Arthur: Alexander Fredholm & George Bahadi
@@ -13,7 +14,6 @@ public class ItemDTO
     private int stock;
 
     public ItemDTO(int id,String title, int price, int stock) {
-
         this.id = id;
         this.title = title;
         this.price = price;
