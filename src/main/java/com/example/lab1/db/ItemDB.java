@@ -25,10 +25,11 @@ public class ItemDB extends Item {
         super(title, price, stock);
     }
 
-    public static void saveToDb(Item i)  {
+    public static void saveToDb(Item i) {
         Connection con = DBManager.getConnection();
+
         String query = "INSERT INTO Items (title, price, stock) VALUES (?, ?, ?)";
-        try (PreparedStatement ps = con.prepareStatement(query)) {
+        try (PreparedStatement ps = con.prepareStatement(query); ) {
             ps.setString(1, i.getTitle());
             ps.setInt(2, i.getPrice());
             ps.setInt(3, i.getStock());
@@ -81,7 +82,7 @@ public class ItemDB extends Item {
                 String title = rs.getString("title");
                 int price = rs.getInt("price");
                 int stock = rs.getInt("stock");
-                Item item = new Item(id,title, price, stock);  // Using factory method to create Item object
+                Item item =  createItem(id,title, price, stock);  // Using factory method to create Item object
                 list.add(item);
             }
         } catch (SQLException e) {

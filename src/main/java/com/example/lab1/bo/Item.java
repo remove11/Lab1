@@ -13,7 +13,7 @@ public class Item {
     }
 
 
-    public Item(int id,String title, int price, int stock) {
+    private Item(int id,String title, int price, int stock) {
 
         this.id = id;
         this.title = title;

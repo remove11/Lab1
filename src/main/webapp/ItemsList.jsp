@@ -94,7 +94,7 @@
       ItemDTO item = new ItemDTO(title, price, stock);
       itemHandler.save(item);    */
   %>
-  <p style="color: green; text-align: center;">Item Added Successfully!</p>
+
   <%
    // }
   %>

@@ -19,14 +19,12 @@ public class itemHandler
         return ItemDB.searchItems(group);
     }*/
 
-    public static void save(ItemDTO itemDTO)  {
+    public static void save(ItemDTO itemDTO){
         Item item = new Item(itemDTO.getTitle(),itemDTO.getPrice(),itemDTO.getStock());
         ItemDB.saveToDb(item);
     }
 
-    public static Item createItem(String title, int price, int stock,int id){
-        return new Item(id,title, price, stock);
-    }
+
     public static ArrayList<ItemDTO> getItems(){
         ArrayList<Item> items = ItemDB.getItems();
 
@@ -42,7 +40,7 @@ public class itemHandler
 
     }
     public static void updateItemStock(ItemDTO item){
-        Item tmp  = new Item(item.getId(),item.getTitle(), item.getPrice(), item.getStock());
+        Item tmp  = Item.createItem(item.getId(),item.getTitle(),item.getPrice(), item.getStock());
         ItemDB.updateItemStock(tmp);
     }
 }

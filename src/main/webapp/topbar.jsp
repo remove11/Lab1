@@ -48,11 +48,22 @@
             top: -10px;
             right: -10px;
         }
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            background-color: #28a745;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
     </style>
     <nav>
         <a href="ItemInsert.jsp">Insert Item</a>
-        <a href="/items">Items List</a>
-        <a href="hello-servlet">Hello</a>
+        <a href="items">Items List</a>
+
+
         <% if (username != null) { %>
         <li><span>Hello, <%= username %>!</span></li>
         <form id="LogoutForm" action="UserServlet" method="get">
@@ -65,6 +76,6 @@
     </nav>
     <div class="cart">
         <a href="cart.jsp"><img src="cart-icon.png" alt="Shopping Cart"></a>
-        <div class="cart-count"><%=cartSize%></div>
+        <div class="cart-count"><%= cartSize %></div> <!-- Display cart size here -->
     </div>
 </header>
