@@ -1,5 +1,10 @@
 package com.example.lab1.ui;
 
+
+/**
+ * The `ItemDTO` class represents a Data Transfer Object (DTO) for items in the application.
+ * It provides a convenient way to encapsulate and transfer item-related data between different parts of the system.
+ */
 public class ItemDTO
 {
     private int id;

@@ -13,14 +13,14 @@ public class Item {
     }
 
 
-    private Item(int id,String title, int price, int stock) {
+    protected Item(int id,String title, int price, int stock) {
 
         this.id = id;
         this.title = title;
         this.price = price;
         this.stock = stock;
     }
-    public Item(String title, int price, int stock)
+    protected Item(String title, int price, int stock)
     {
         this.title = title;
         this.price = price;
