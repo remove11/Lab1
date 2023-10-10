@@ -1,11 +1,7 @@
-
-<%@ page import="java.util.ArrayList" %><%--
-  Created by IntelliJ IDEA.
-  User: george
-  Date: 2023-10-03
-  Time: 17:00
-  To change this template use File | Settings | File Templates.
+<%--
+  User: Alexander Fredholm & George Bahadi
 --%>
+<%@ page import="java.util.ArrayList" %>
 <%@ page contentType="text/html; charset=UTF-8" language="java" %>
 <%-- Check if the user is logged in --%>
 <%  session = request.getSession(false); %>
@@ -15,6 +11,7 @@
 <html>
 <head>
   <title>Items</title>
+  <%-- Css style --%>
   <style>
 
 

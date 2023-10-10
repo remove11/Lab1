@@ -1,3 +1,6 @@
+<%--
+  User: Alexander Fredholm & George Bahadi
+--%>
 <%@ page import="com.example.lab1.db.DBManager" %>
 <%@ page import="com.example.lab1.bo.Item" %>
 <%@ page import="com.example.lab1.db.ItemDB" %>
@@ -12,6 +15,7 @@
 <html>
 <head>
   <title>Items</title>
+    <%-- Css style --%>
   <style>
     body, html {
       margin: 0;
@@ -85,19 +89,6 @@
 
 <div class="container">
   <h1>Current Items</h1>
-
-  <%
-   /* String title = request.getParameter("title");
-    if (title != null && !title.isEmpty()) {
-      int price = Integer.parseInt(request.getParameter("price"));
-      int stock = Integer.parseInt(request.getParameter("stock"));
-      ItemDTO item = new ItemDTO(title, price, stock);
-      itemHandler.save(item);    */
-  %>
-
-  <%
-   // }
-  %>
    <div class="product-grid">
        <%
          ArrayList<ItemDTO> items;
@@ -125,7 +116,7 @@
 
      <%
          }
-         %>
+     %>
   </div>
 </div>
 </body>

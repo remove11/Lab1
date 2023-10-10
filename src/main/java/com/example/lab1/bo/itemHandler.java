@@ -1,3 +1,8 @@
+/**
+ * Lab1
+ * Arthur: Alexander Fredholm & George Bahadi
+ */
+
 package com.example.lab1.bo;
 
 import com.example.lab1.db.ItemDB;
@@ -10,7 +15,6 @@ public class itemHandler{
         ItemDB.saveToDb(item);
     }
 
-
     public static ArrayList<ItemDTO> getItems(){
         ArrayList<Item> items = ItemDB.getItems();
         ArrayList<ItemDTO> value = new ArrayList<>();
@@ -22,7 +26,6 @@ public class itemHandler{
     public static ItemDTO getItemByID(int id){
         Item item = ItemDB.getItemById(id);
         return new ItemDTO(item.getId(), item.getTitle(), item.getPrice(), item.getStock());
-
     }
     public static void updateItemStock(ItemDTO item){
         Item tmp  = Item.createItem(item.getId(),item.getTitle(),item.getPrice(), item.getStock());

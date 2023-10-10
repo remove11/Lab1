@@ -6,6 +6,7 @@
 <html>
 <head>
   <title>Shopping Cart</title>
+  <%-- Css style --%>
   <style>
     body, html {
       margin: 0;

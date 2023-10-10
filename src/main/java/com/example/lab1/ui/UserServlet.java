@@ -1,3 +1,8 @@
+/**
+ * Lab1
+ * Arthur: Alexander Fredholm & George Bahadi
+ */
+
 package com.example.lab1.ui;
 
 import com.example.lab1.bo.userHandler;
@@ -17,21 +22,18 @@ public class UserServlet extends HttpServlet {
     {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-        // Anropa en tjänst i ditt datalager för att kontrollera inloggningen
         UserDTO user = userHandler.authenticate(username, password);
         if (user != null) {
-            // Inloggning lyckades
             HttpSession session = request.getSession();
             session.setAttribute("username", username);
             if (userHandler.isAdmin(username)){
                 session.setAttribute("isAdmin", true);
-                response.sendRedirect("ItemInsert.jsp"); // Ersätt med din målsida
+                response.sendRedirect("ItemInsert.jsp");
             }else {
                 session.setAttribute("isAdmin",false);
                 response.sendRedirect("index.jsp");
             }
         } else {
-            System.out.println("FELLLLLL");
             request.setAttribute("errorMessage", "Felaktigt användarnamn eller lösenord");
             request.getRequestDispatcher("login.jsp").forward(request, response);
         }
@@ -39,11 +41,8 @@ public class UserServlet extends HttpServlet {
     private void register(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-        boolean isAdmin = (request.getParameter("isAdmin") != null); // Check if the isAdmin checkbox is checked
-
-
+        boolean isAdmin = (request.getParameter("isAdmin") != null);
         userHandler.register(username, password, isAdmin);
-
         response.sendRedirect("login.jsp");
     }
 
@@ -58,16 +57,11 @@ public class UserServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // Hämta användarens session (om den finns)
         HttpSession session = request.getSession(false);
-
         if (session != null) {
-            // Ogiltigförklara sessionen (logga ut)
             session.invalidate();
         }
-
-        // Omdirigera till startsidan eller inloggningssidan
-        response.sendRedirect("index.jsp"); // Byt ut med din önskade sida
+        response.sendRedirect("index.jsp");
     }
 
 

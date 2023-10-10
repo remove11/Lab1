@@ -1,3 +1,8 @@
+/**
+ * Lab1
+ * Arthur: Alexander Fredholm & George Bahadi
+ */
+
 package com.example.lab1.db;
 
 import java.sql.Connection;

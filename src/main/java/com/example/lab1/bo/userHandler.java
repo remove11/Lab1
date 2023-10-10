@@ -1,3 +1,8 @@
+/**
+ * Lab1
+ * Arthur: Alexander Fredholm & George Bahadi
+ */
+
 package com.example.lab1.bo;
 
 import com.example.lab1.db.userDB;
@@ -12,7 +17,6 @@ public class userHandler{
         }else{
             return null;
         }
-
     }
     public static boolean isAdmin(String username){
         boolean admin = userDB.isAdmin(username);

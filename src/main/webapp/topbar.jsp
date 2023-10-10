@@ -1,3 +1,6 @@
+<%--
+  User: Alexander Fredholm & George Bahadi
+--%>
 <%@ page import="com.example.lab1.bo.Cart" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%  session = request.getSession(false); %>
@@ -8,6 +11,7 @@
 %>
 
 <header>
+    <%-- Css style --%>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -62,8 +66,6 @@
     <nav>
         <a href="ItemInsert.jsp">Insert Item</a>
         <a href="items">Items List</a>
-
-
         <% if (username != null) { %>
         <li><span>Hello, <%= username %>!</span></li>
         <form id="LogoutForm" action="UserServlet" method="get">

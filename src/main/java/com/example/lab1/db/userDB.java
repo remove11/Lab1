@@ -1,3 +1,8 @@
+/**
+ * Lab1
+ * Arthur: Alexander Fredholm & George Bahadi
+ */
+
 package com.example.lab1.db;
 
 import com.example.lab1.bo.User;
@@ -14,7 +19,6 @@ public class userDB {
         try (PreparedStatement ps = conn.prepareStatement("SELECT * FROM Users WHERE username = ? AND password = ?")) {
             ps.setString(1, username);
             ps.setString(2, password);
-
             ResultSet rs = ps.executeQuery();
 
             if (rs.next()) {
@@ -33,7 +37,6 @@ public class userDB {
 
     public static boolean isAdmin(String username) {
         boolean isAdmin = false;
-
             Connection connection = DBManager.getConnection();
             String sql = "SELECT isAdmin FROM users WHERE username = ?";
             try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
@@ -46,9 +49,7 @@ public class userDB {
             }
          catch (SQLException e) {
             e.printStackTrace();
-            // Handle any database-related exceptions here
         }
-
         return isAdmin;
     }
     public static void register(String username, String password,Boolean isAdmin){

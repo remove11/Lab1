@@ -1,3 +1,8 @@
+/**
+ * Lab1
+ * Arthur: Alexander Fredholm & George Bahadi
+ */
+
 package com.example.lab1.ui;
 
 public class UserDTO
@@ -13,8 +18,6 @@ public class UserDTO
       this.password = password;
       this.username = username;
    }
-
-
 
    public boolean isAdmin() {
       return isAdmin;

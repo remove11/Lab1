@@ -1,3 +1,6 @@
+<%--
+  User: Alexander Fredholm & George Bahadi
+--%>
 <%@ page import="com.example.lab1.db.DBManager" %>
 <%@ page import="com.example.lab1.bo.Item" %>
 <%@ page import="com.example.lab1.db.ItemDB" %>
@@ -15,6 +18,7 @@
 <html>
 <head>
     <title>Insert New Item</title>
+    <%-- Css style --%>
     <style>
         body, html {
             margin: 0;
