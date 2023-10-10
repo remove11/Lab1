@@ -6,15 +6,11 @@ public class Item {
     private int price;
     private int stock;
 
-
-
     public static Item createItem(int id, String title, int price, int stock){
             return new Item(id,title, price, stock);
     }
 
-
     protected Item(int id,String title, int price, int stock) {
-
         this.id = id;
         this.title = title;
         this.price = price;

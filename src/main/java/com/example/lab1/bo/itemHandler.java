@@ -2,10 +2,7 @@ package com.example.lab1.bo;
 
 import com.example.lab1.db.ItemDB;
 import com.example.lab1.ui.ItemDTO;
-
-import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Collection;
 
 public class itemHandler{
     public static void save(ItemDTO itemDTO){
